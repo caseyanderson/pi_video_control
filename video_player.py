@@ -9,7 +9,7 @@ import subprocess
 
 class Player():
     def __init__(self,path):
-        self.path = path
+        self.path = None
         self.process = None
     def play(self, path):
         self.path = path
