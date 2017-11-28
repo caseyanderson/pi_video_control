@@ -9,14 +9,14 @@ import subprocess
 
 class Player():
     def __init__(self):
-        self.url = None
+        self.path = None
         self.process = None
-    def play(self, url):
-        self.url = url
-        self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', self.url], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
-    def loop(self, url):
-        self.url = url
-        self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', '--loop', self.url], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+    def play(self, path):
+        self.path = path
+        self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', self.path], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+    def loop(self, path):
+        self.path = path
+        self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', '--loop', self.path], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
     def stop(self):
         self.process.stdin.write(b'q')
         self.process.stdin.flush()
