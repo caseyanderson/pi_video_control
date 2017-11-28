@@ -8,7 +8,7 @@ currently supports init, play, loop, stop, and toggling pause
 import subprocess
 
 class Player():
-    def __init__(self,path):
+    def __init__(self):
         self.path = None
         self.process = None
     def play(self, path):
