@@ -23,12 +23,10 @@ try:
             preexec_fn=os.setpgrp,
             close_fds=True)
             is_playing = 1
-        if is_playing == 1:
+        elif is_playing == 1:
             if play_process.poll() is not None:     # the process is done when it is not None
                 print(''.join(['done', '\n', '\n']))
                 is_playing = 0
-            # else:
-            #     # print('playing')
 except KeyboardInterrupt:
     print(''.join([ '\n', '\n', 'INTERRUPTED', '\n']))
     button.close()
