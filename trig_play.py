@@ -5,7 +5,7 @@ import signal
 import subprocess
 from gpiozero import Button
 
-video_path = '/home/pi/head_explode.mp4'
+video_path = '/home/pi/dramatic_chipmunk.mp4'
 input_pin = 4
 is_playing = 0
 play_process = None

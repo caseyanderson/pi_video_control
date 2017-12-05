@@ -37,6 +37,7 @@ try:
             camera.stop_preview()
             led.off()
             camera.close()
+            is_recording = 0
 
 except KeyboardInterrupt:
     print("INTERRUPTED!")
