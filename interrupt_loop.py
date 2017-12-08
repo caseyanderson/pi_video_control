@@ -15,27 +15,36 @@ BASE_DIR = '/home/pi/'
 loop_path = ''.join([BASE_DIR, 'dramatic_chipmunk.mp4'])
 play_path = ''.join([BASE_DIR, 'head_explode.mp4'])
 
-loop = Player(loop_path)
-play = Player(play_path)
+v1_playing = 0
+v2_playing = 0
 
 try:
     while True:
-        if (button.value == False) and (first_time == 1):
-            print('starting loop')
-            first_time = 0
-            loop.loop()
-
-        elif (button.value == True) and (first_time == 0):
-            print('interrupt')
-            interrupted = 1
-            loop.toggle()
+        
+        if (v1_playing == 0) and (v2_playing == 0) and (button.value == False):
+            print(''.join(['no videos playing, starting v1', '\n', '\n']))
+            loop = Player(loop_path)
+            loop.play()
+            v1_playing = 1
+        
+        elif (v1_playing == 1) and (v2_playing == 0) and (button.value == False):
+            if loop.status() == 'done':
+                print('v1 is done')
+                v1_playing = 0
+        
+        elif (v1_playing == 1) and (button.value == True):
+            
+            print('v1 interrupted!')
+            loop.stop()
+            play = Player(play_path)
             play.play()
+            v1_playing = 0
+            v2_playing = 1
 
-        elif (first_time == 0) and (interrupted == 1):
+        elif (v1_playing == 0) and (v2_playing == 1) and (button.value == False):
             if play.status() == 'done':
-                print('going back to loop')
-                loop.toggle()
-                interrupted = 0
+                print('v2 is done')
+                v2_playing = 0
 
 except KeyboardInterrupt:
     print(''.join([ '\n', '\n', 'INTERRUPTED', '\n']))
