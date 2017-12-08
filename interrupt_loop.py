@@ -8,6 +8,7 @@ from time import sleep
 button = Button(4)
 
 first_time = 1
+interrupted = 0
 
 BASE_DIR = '/home/pi/'
 
