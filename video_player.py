@@ -8,18 +8,29 @@ currently supports init, play, loop, stop, and toggling pause
 import subprocess
 
 class Player():
-    def __init__(self):
+    
+    def __init__(self):     # path should be set during init
         self.path = None
         self.process = None
-    def play(self, path):
-        self.path = path
-        self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', self.path], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+    
     def loop(self, path):
         self.path = path
         self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', '--loop', self.path], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
-    def stop(self):
+
+    def play(self, path):
+        self.path = path
+        self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', self.path], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+    
+    def status(self):
+        if self.process.poll() is not None:
+            return 'done' 
+        else:
+            return 'playing' 
+
+    def stop(self):         # is quit the same as terminate?
         self.process.stdin.write(b'q')
         self.process.stdin.flush()
+    
     def toggle(self):
         self.process.stdin.write(b'p')
         self.process.stdin.flush()
