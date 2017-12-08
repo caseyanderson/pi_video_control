@@ -12,8 +12,11 @@ interrupted = 0
 
 BASE_DIR = '/home/pi/'
 
-loop = Player(''.join([BASE_DIR, 'dramatic_chipmunk.mp4']))
-play = Player(''.join([BASE_DIR, 'head_explode.mp4']))
+loop_path = ''.join([BASE_DIR, 'dramatic_chipmunk.mp4']))
+play_path = ''.join([BASE_DIR, 'head_explode.mp4']))
+
+loop = Player(loop_path)
+play = Player(play_path)
 
 try:
     while True:
