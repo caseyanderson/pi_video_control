@@ -9,13 +9,13 @@ import subprocess
 
 class Player():
     
-    def __init__(self):     # path should be set during init
-        self.path = None
+    def __init__(self, path):     # path should be set during init
+        self.path = path  
         self.process = None
     
-    def loop(self, path):
-        self.path = path
-        self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', '--loop', self.path], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+    def loop(self):
+        path = self.path
+        self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', '--loop', path], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
 
     def play(self, path):
         self.path = path
