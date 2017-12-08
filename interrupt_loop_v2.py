@@ -22,7 +22,7 @@ try:
     while True:
         
         if (v1_playing == 0) and (v2_playing == 0) and (button.value == False):
-            print(''.join(['no videos playing, starting v1', '/n', '/n']))
+            print(''.join(['no videos playing, starting v1', '\n', '\n']))
             loop = Player(loop_path)
             loop.play()
             v1_playing = 1
