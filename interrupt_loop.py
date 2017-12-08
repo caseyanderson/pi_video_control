@@ -19,14 +19,14 @@ try:
     while True:
         if (button.value == False) and (first_time == 1):
             print('starting loop')
-            loop.loop()
             first_time = 0
+            loop.loop()
 
         elif (button.value == True) and (first_time == 0):
             print('interrupt')
+            interrupted = 1
             loop.toggle()
             play.play()
-            interrupted = 1
 
         elif (first_time == 0) and (interrupted == 1):
             if play.status() == 'done':
