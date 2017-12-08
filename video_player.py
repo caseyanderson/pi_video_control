@@ -17,9 +17,9 @@ class Player():
         path = self.path
         self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', '--loop', path], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
 
-    def play(self, path):
-        self.path = path
-        self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', self.path], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+    def play(self):
+        path = self.path
+        self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', path], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
     
     def status(self):
         if self.process.poll() is not None:
