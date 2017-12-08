@@ -27,7 +27,7 @@ try:
             loop.play()
             v1_playing = 1
         
-        elif (v1_player == 1) and (v2_playing == 0) and (button.value == False):
+        elif (v1_playing == 1) and (v2_playing == 0) and (button.value == False):
             if loop.status() == 'done':
                 print('v1 is done')
                 v1_playing = 0
