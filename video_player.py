@@ -32,7 +32,7 @@ class Player():
         self.process.stdin.flush()
 
     def position(self):
-        self.process.stdin.write(b'z')
+        self.process.stdin.write(b'-s')
         self.process.stdin.flush()
     
     def toggle(self):
