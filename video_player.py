@@ -30,6 +30,10 @@ class Player():
     def stop(self):         # is quit the same as terminate?
         self.process.stdin.write(b'q')
         self.process.stdin.flush()
+
+    def position(self):
+        self.process.stdin.write(b'z')
+        self.process.stdin.flush()
     
     def toggle(self):
         self.process.stdin.write(b'p')
