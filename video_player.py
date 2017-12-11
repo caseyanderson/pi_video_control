@@ -15,7 +15,7 @@ class Player():
     
     def loop(self):
         path = self.path
-        self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', '--loop','-s', path], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+        self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', '--loop', path], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
 
     def play(self):
         path = self.path
@@ -30,7 +30,10 @@ class Player():
     def stop(self):         # is quit the same as terminate?
         self.process.stdin.write(b'q')
         self.process.stdin.flush()
-
+    
+    def position(self):
+        self.subprocess.call(['omxplayer', '-s'], shell=True)
+    
     def toggle(self):
         self.process.stdin.write(b'p')
         self.process.stdin.flush()
