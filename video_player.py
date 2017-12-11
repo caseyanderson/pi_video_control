@@ -15,7 +15,7 @@ class Player():
     
     def loop(self):
         path = self.path
-        self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', '--loop', path], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+        self.process = subprocess.Popen(['omxplayer', '-b', '--no-osd', '--loop','--stats', path], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
 
     def play(self):
         path = self.path
@@ -31,9 +31,6 @@ class Player():
         self.process.stdin.write(b'q')
         self.process.stdin.flush()
 
-    def position(self):
-        self.process = subprocess.Popen(['omxplayer', '-s' ], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
-    
     def toggle(self):
         self.process.stdin.write(b'p')
         self.process.stdin.flush()
