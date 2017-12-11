@@ -32,7 +32,7 @@ class Player():
         self.process.stdin.flush()
     
     def position(self):
-        self.subprocess.call(['omxplayer', '-s'], shell=True)
+        self.process.call(['omxplayer', '-s'], shell=True)
     
     def toggle(self):
         self.process.stdin.write(b'p')
