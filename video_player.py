@@ -29,10 +29,10 @@ class Player():
             return 'playing' 
 
     def info(self):
-        self.out = subprocess.check_output(["omxplayer", "-s"])
-        return out
-
-
+        self.process.stdin.write(b'q')
+        self.process.stdin.flush()
+        return process.stdout.splitlines()
+    
     def stop(self):         # is quit the same as terminate?
         self.process.stdin.write(b'q')
         self.process.stdin.flush()
