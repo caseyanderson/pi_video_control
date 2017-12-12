@@ -16,7 +16,7 @@ try:
     while True:
         if is_playing == 0 and button.value == True:
             print('button pressed, starting video')
-            play_process = subprocess.Popen(['omxplayer', '-b', '--no-osd', video_path],
+            play_process = subprocess.Popen(['omxplayer', '-b', '-s', '--no-osd', video_path],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
