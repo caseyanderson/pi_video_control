@@ -6,7 +6,7 @@ currently supports init, play, loop, stop, and toggling pause
 '''
 
 import subprocess
-from subprocess import check_output
+import io
 
 class Player():
     
@@ -29,7 +29,7 @@ class Player():
             return 'playing' 
 
     def info(self):
-        self.process.stdin.write(b'q')
+        self.process.stdin.write(b'z')
         self.process.stdin.flush()
         return self.process.stdout
     
