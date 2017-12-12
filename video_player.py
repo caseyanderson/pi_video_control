@@ -31,11 +31,6 @@ class Player():
         self.process.stdin.write(b'q')
         self.process.stdin.flush()
     
-    def send_signal(self, msg):
-        self.msg = str(msg)
-        self.process = subprocess.communicate(input=msg.encode('utf-8'))
-        self.stdin.close()
-
     def toggle(self):
         self.process.stdin.write(b'p')
         self.process.stdin.flush()
