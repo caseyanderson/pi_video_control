@@ -27,6 +27,10 @@ class Player():
         else:
             return 'playing' 
 
+    def info(self):
+        self.process.stdin.write(b'z')
+        self.process.stdin.flush()
+
     def stop(self):         # is quit the same as terminate?
         self.process.stdin.write(b'q')
         self.process.stdin.flush()
