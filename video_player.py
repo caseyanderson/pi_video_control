@@ -6,7 +6,6 @@ currently supports init, play, loop, stop, and toggling pause
 '''
 
 import subprocess
-import io
 
 class Player():
 
@@ -27,15 +26,6 @@ class Player():
             return 'done'
         else:
             return 'playing'
-
-    def info(self):
-        self.process.stdin.write(b'z')
-        self.process.stdin.flush()
-        line = self.process.stdout.readline()
-        if line != b'':
-            return line
-        else:
-            break
 
     def stop(self):         # is quit the same as terminate?
         self.process.stdin.write(b'q')
