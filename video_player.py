@@ -6,6 +6,7 @@ currently supports init, play, loop, stop, and toggling pause
 '''
 
 import subprocess
+from subprocess import check_output
 
 class Player():
     
@@ -28,7 +29,7 @@ class Player():
             return 'playing' 
 
     def info(self):
-        self.out = check_output(["omxplayer", "-s"])
+        self.out = subprocess.check_output(["omxplayer", "-s"])
         return out
 
 
