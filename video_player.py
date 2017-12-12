@@ -28,8 +28,9 @@ class Player():
             return 'playing' 
 
     def info(self):
-        self.process.stdin.write(b'z')
-        self.process.stdin.flush()
+        self.out = check_output(["omxplayer", "-s"])
+        return out
+
 
     def stop(self):         # is quit the same as terminate?
         self.process.stdin.write(b'q')
