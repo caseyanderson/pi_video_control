@@ -31,9 +31,6 @@ class Player():
         self.process.stdin.write(b'q')
         self.process.stdin.flush()
     
-    def position(self):
-        print(self.process.communicate())
-    
     def toggle(self):
         self.process.stdin.write(b'p')
         self.process.stdin.flush()
