@@ -31,8 +31,11 @@ class Player():
     def info(self):
         self.process.stdin.write(b'z')
         self.process.stdin.flush()
-        for line in io.TextIOWrapper(self.process, encoding="utf-8"):
-            print(line)
+        line = self.process.stdout.readline()
+        if line != b'':
+            return line
+        else:
+            break
 
     def stop(self):         # is quit the same as terminate?
         self.process.stdin.write(b'q')
