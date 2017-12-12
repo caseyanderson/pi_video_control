@@ -31,7 +31,7 @@ class Player():
     def info(self):
         self.process.stdin.write(b'q')
         self.process.stdin.flush()
-        return process.stdout.splitlines()
+        return self.process.stdout.splitlines()
     
     def stop(self):         # is quit the same as terminate?
         self.process.stdin.write(b'q')
