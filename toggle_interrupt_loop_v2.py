@@ -12,17 +12,18 @@ loop_path = ''.join([BASE_DIR, 'dramatic_chipmunk.mp4'])
 
 loop = Player(loop_path)
 
-is_paused = False
+is_playing = False
 
 try:
     while True:
-                if (button.value == True) and (is_paused == False):
-                    print('play first time')
-                    is_paused = True
-                elif (button.value == True ) and (is_paused == True):
-                    print('do nothing')
-                elif (button.value == False) and (is_paused == True):
-                    print('playing video')
+                if (button.value == True) and (is_playing == False):
+                    print('!')
+                elif (button.value == False ) and (is_playing == False):
+                    print('play')
+                    is_playing = True
+                elif (button.value == True) and (is_playing == True):
+                    print('pause')
+                    is_playing = False
 
 
 except KeyboardInterrupt:
