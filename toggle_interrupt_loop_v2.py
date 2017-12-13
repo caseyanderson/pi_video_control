@@ -22,9 +22,11 @@ try:
     while True:
         if (button.value == True) and (is_playing == True) and (firsttime == False):
             print('pause')
+            loop.toggle()
             is_playing = False
         elif (button.value == False) and (is_playing == False) and (firsttime == False):
             print('play')
+            loop.toggle()
             is_playing = True
 
 except KeyboardInterrupt:
