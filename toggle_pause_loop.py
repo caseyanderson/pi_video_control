@@ -24,8 +24,6 @@ try:
             print('pause video')
         elif (button.value == False) and (is_paused == False):
             print('playing video')
-except:    
-    KeyboardInterrupt:
+except KeyboardInterrupt:
     print(''.join([ '\n', '\n', 'INTERRUPTED', '\n']))
     button.close()
-
