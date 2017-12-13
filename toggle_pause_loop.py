@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 from video_player import *
-
+import os
+import signal
 from gpiozero import Button
 
 button = Button(4)
@@ -9,7 +10,6 @@ button = Button(4)
 BASE_DIR = '/home/pi/'
 
 loop_path = ''.join([BASE_DIR, 'dramatic_chipmunk.mp4'])
-
 loop = Player(loop_path)
 
 is_playing = False
@@ -36,3 +36,8 @@ try:
 except KeyboardInterrupt:
     print(''.join([ '\n', '\n', 'INTERRUPTED', '\n']))
     button.close()
+    if loop.poll() is None:
+        print('video is running, terminating now!')
+        os.killpg(os.getpgid(loop.pid), signal.SIGTERM)  # Send the signal to all the process groups (found this here: https://stackoverflow.com/questions/4789837/how-to-terminate-a-python-subprocess-launched-with-shell-true )
+    else:
+        print('no video running, exiting now')
