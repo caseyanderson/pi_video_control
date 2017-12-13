@@ -8,22 +8,27 @@ button = Button(4)
 
 BASE_DIR = '/home/pi/'
 
-filename = 'dramatic_chipmunk.mp4'
-
-loop_path = ''.join([BASE_DIR, filename ])
+loop_path = ''.join([BASE_DIR, 'dramatic_chipmunk.mp4'])
 
 loop = Player(loop_path)
 
-is_paused = False
+is_playing = True
+firsttime = False
+
+loop.loop()
+
 
 try:
-
     while True:
+        if (button.value == True) and (is_playing == True) and (firsttime == False):
+            print('pause')
+            loop.toggle()
+            is_playing = False
+        elif (button.value == False) and (is_playing == False) and (firsttime == False):
+            print('play')
+            loop.toggle()
+            is_playing = True
 
-        if (button.value == True) and (is_paused == False):
-            print('pause video')
-        elif (button.value == False) and (is_paused == False):
-            print('playing video')
 except KeyboardInterrupt:
     print(''.join([ '\n', '\n', 'INTERRUPTED', '\n']))
     button.close()
