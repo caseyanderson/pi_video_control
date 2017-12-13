@@ -12,15 +12,17 @@ loop_path = ''.join([BASE_DIR, 'dramatic_chipmunk.mp4'])
 
 loop = Player(loop_path)
 
-is_playing = True
-firsttime = False
-
-loop.loop()
-
+is_playing = False
+firsttime = True
 
 try:
     while True:
-        if (button.value == True) and (is_playing == True) and (firsttime == False):
+        if (button.value == True) and (is_playing == False) and (firsttime == True):
+            print('nothing is playing, start the loop')
+            loop.loop()
+            firsttime = False
+            is_playing = True
+        elif (button.value == True) and (is_playing == True) and (firsttime == False):
             print('pause')
             loop.toggle()
             is_playing = False
