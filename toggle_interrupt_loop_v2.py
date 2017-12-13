@@ -14,12 +14,16 @@ loop = Player(loop_path)
 
 is_paused = False
 
+loop.loop()
+
 try:
     while True:
                 if (button.value == True) and (is_paused == False):
                     print('pause video')
+                    loop.toggle()
                 elif (button.value == False) and (is_paused == False):
                     print('playing video')
+                    loop.toggle()
 
 except KeyboardInterrupt:
     print(''.join([ '\n', '\n', 'INTERRUPTED', '\n']))
