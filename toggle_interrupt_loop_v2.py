@@ -17,7 +17,7 @@ is_playing = False
 try:
     while True:
                 if (button.value == True) and (is_playing == False):
-                    print('!')
+                    # print('!')
                 elif (button.value == False ) and (is_playing == False):
                     print('play')
                     is_playing = True
