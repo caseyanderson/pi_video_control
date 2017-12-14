@@ -36,3 +36,6 @@ __pychache__/
 # sass
 .sass-cache/
 *.css.map
+
+# python
+*.pyc
