@@ -12,15 +12,18 @@ interrupted = 0
 
 BASE_DIR = '/home/pi/'
 
-loop_path = ''.join([BASE_DIR, 'dramatic_chipmunk.mp4'])
-play_path = ''.join([BASE_DIR, 'head_explode.mp4'])
+LOOP_FILENAME = 'dramatic_chipmunk.mp4'
+INT_FILENAME = 'head_explode.mp4'
+
+
+loop_path = ''.join([BASE_DIR, LOOP_FILENAME])
+play_path = ''.join([BASE_DIR, INT_FILENAME]) 
 
 v1_playing = 0
 v2_playing = 0
 
 try:
-    while True:
-        
+    while True: 
         if (v1_playing == 0) and (v2_playing == 0) and (button.value == False):
             print(''.join(['no videos playing, starting v1', '\n', '\n']))
             loop = Player(loop_path)
