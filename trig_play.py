@@ -5,7 +5,7 @@ from gpiozero import Button
 BASE_DIR = '/home/pi/'
 FILENAME =  'dramatic_chipmunk.mp4'
 
-play_path = ''.join([BASE_DIR, FILENAME])JJJ
+play_path = ''.join([BASE_DIR, FILENAME])
 
 input_pin = 4
 is_playing = 0
