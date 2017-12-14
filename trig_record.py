@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-# trig camera recording via GPIO signal for certain duration
+
+'''
+trig camera recording for fixed duration via GPIO
+'''
 
 from gpiozero import Button
 from gpiozero import LED

@@ -1,8 +1,7 @@
+#!/usr/bin/python3
+
 '''
 wrapper for controlling omxplayer instances
-
-currently supports init, play, loop, stop, kill, and toggling pause
-
 '''
 
 import subprocess
@@ -33,7 +32,7 @@ class Player():
     def stop(self):
         self.process.stdin.write(b'q')
         self.process.stdin.flush()
-    
+
     def kill(self):
         os.killpg(os.getpgid(self.process.pid), signal.SIGTERM)
 

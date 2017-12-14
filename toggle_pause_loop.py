@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 
+'''
+pause looping video when trigger is release
+'''
+
 from video_player import *
 import os
 import signal

@@ -1,4 +1,9 @@
-# trigger a video from button press or similar input
+#!/usr/bin/python3
+
+'''
+trigger a video from button press or similar
+'''
+
 from video_player import *
 from gpiozero import Button
 
@@ -17,7 +22,7 @@ try:
     while True:
         if is_playing == 0 and button.value == True:
             print('button pressed, starting video')
-            play.play()            
+            play.play()
             is_playing = 1
         elif is_playing == 1:
             if play.status() == 'done':
@@ -28,6 +33,6 @@ except KeyboardInterrupt:
     button.close()
     if play.status() == 'playing':
         print('video is running, terminating now!')
-        play.kill() 
+        play.kill()
     else:
         print('no video running, exiting now')
