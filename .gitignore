@@ -30,9 +30,9 @@ nbproject
 
 # Folders to ignore
 node_modules
+__pychache__/
+
 
 # sass
 .sass-cache/
 *.css.map
-
-__pychache__/
