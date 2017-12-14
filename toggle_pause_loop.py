@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 '''
-pause looping video when trigger is release
+pause looping video when trigger is released
 '''
 
 from video_player import *
