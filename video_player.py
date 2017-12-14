@@ -1,7 +1,7 @@
 '''
 wrapper for controlling omxplayer instances
 
-currently supports init, play, loop, stop, and toggling pause
+currently supports init, play, loop, stop, kill, and toggling pause
 
 '''
 
@@ -12,7 +12,7 @@ import signal
 
 class Player():
 
-    def __init__(self, path):     # path should be set during init
+    def __init__(self, path):
         self.path = path
         self.process = None
 
@@ -30,7 +30,7 @@ class Player():
         else:
             return 'playing'
 
-    def stop(self):         # is quit the same as terminate?
+    def stop(self):
         self.process.stdin.write(b'q')
         self.process.stdin.flush()
     
