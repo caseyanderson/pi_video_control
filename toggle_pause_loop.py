@@ -38,6 +38,7 @@ except KeyboardInterrupt:
     button.close()
     if loop.status() is 'playing':
         print('video is playing, terminating now!')
-        os.killpg(os.getpgid(loop.pid), signal.SIGTERM)  # Send the signal to all the process groups (found this here: https://stackoverflow.com/questions/4789837/how-to-terminate-a-python-subprocess-launched-with-shell-true )
+        # os.killpg(os.getpgid(loop.pid), signal.SIGTERM)  # Send the signal to all the process groups (found this here: https://stackoverflow.com/questions/4789837/how-to-terminate-a-python-subprocess-launched-with-shell-true )
+        loop.stop()
     else:
         print('no video running, exiting now')
