@@ -8,27 +8,28 @@ from gpiozero import Button
 button = Button(4)
 
 BASE_DIR = '/home/pi/'
+FILENAME = 'dramatic_chipmunk.mp4'
 
-loop_path = ''.join([BASE_DIR, 'dramatic_chipmunk.mp4'])
+loop_path = ''.join([BASE_DIR, FILENAME])
 loop = Player(loop_path)
 
 is_playing = False
-firsttime = True
+first_time = True
 
 try:
     while True:
-        if (button.value == False) and (is_playing == False) and (firsttime == True):
+        if (button.value == False) and (is_playing == False) and (first_time == True):
             print('tigger must be down to setup loop')
-        elif (button.value == True) and (is_playing == False) and (firsttime == True):
+        elif (button.value == True) and (is_playing == False) and (first_time == True):
             print('nothing is playing, start the loop')
             loop.loop()
-            firsttime = False
+            first_time = False
             is_playing = True
-        elif (button.value == True) and (is_playing == True) and (firsttime == False):
+        elif (button.value == True) and (is_playing == True) and (first_time == False):
             print('pause')
             loop.toggle()
             is_playing = False
-        elif (button.value == False) and (is_playing == False) and (firsttime == False):
+        elif (button.value == False) and (is_playing == False) and (first_time == False):
             print('play')
             loop.toggle()
             is_playing = True

@@ -6,6 +6,9 @@ currently supports init, play, loop, stop, and toggling pause
 '''
 
 import subprocess
+import os
+import signal
+
 
 class Player():
 
@@ -30,6 +33,9 @@ class Player():
     def stop(self):         # is quit the same as terminate?
         self.process.stdin.write(b'q')
         self.process.stdin.flush()
+    
+    def kill(self):
+        os.killpg(os.getpgid(self.process.pid), signal.SIGTERM)
 
     def toggle(self):
         self.process.stdin.write(b'p')
