@@ -17,7 +17,9 @@ firsttime = True
 
 try:
     while True:
-        if (button.value == True) and (is_playing == False) and (firsttime == True):
+        if (button.value == False) and (is_playing == False) and (firsttime == True):
+            print('tigger must be down to setup loop')
+        elif (button.value == True) and (is_playing == False) and (firsttime == True):
             print('nothing is playing, start the loop')
             loop.loop()
             firsttime = False
