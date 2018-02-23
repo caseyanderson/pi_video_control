@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 '''
-trigger a video when analog sensor crosses a value
+trigger video playback when analog sensor crosses a value
 '''
 
 from video_player import *
