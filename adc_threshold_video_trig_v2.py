@@ -8,7 +8,7 @@ from video_player import *
 import time
 import Adafruit_ADS1x15
 
-BASE_DIR = '/home/pi/'
+BASE_DIR = '/home/cta/'
 FILENAME =  'dramatic_chipmunk.mp4'
 
 play_path = ''.join([BASE_DIR, FILENAME])
@@ -24,7 +24,7 @@ threshold = 500
 try:
     while True:
         sensor_val = adc.read_adc(0, gain=GAIN)
-        if is_playing == False and sensor_val >= threshold:
+        if is_playing == False and sensor_val <= threshold:
             print('threshold crossed, starting video')
             play.play()
             is_playing = True
@@ -32,7 +32,6 @@ try:
             if play.status() == 'done':
                 print(''.join(['done', '\n', '\n']))
                 is_playing = False
-        time.sleep(0.01)
 except KeyboardInterrupt:
     print(''.join([ '\n', '\n', 'INTERRUPTED', '\n']))
     button.close()
