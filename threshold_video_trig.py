@@ -21,6 +21,7 @@ threshold = 500
 is_playing = False
 
 try:
+    print("reading sensor values!")
     while True:
         sensor_val = adc.read_adc(0, gain=GAIN)
         if is_playing == False and sensor_val <= threshold:
