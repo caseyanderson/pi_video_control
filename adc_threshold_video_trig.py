@@ -7,7 +7,7 @@ from video_player import *
 import time
 import Adafruit_ADS1x15
 
-BASE_DIR = '/home/pi/'
+BASE_DIR = '/home/cta/'
 FILENAME =  'dramatic_chipmunk.mp4'
 
 play_path = ''.join([BASE_DIR, FILENAME])
@@ -27,6 +27,7 @@ while True:
     elif is_playing == False and sensor_val < threshold:
         print('play video')
         play = Player(play_path)
+        time.sleep(0.01) # unnecessary
         play.play()
         is_playing = True
         if play.status() == 'done':
