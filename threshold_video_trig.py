@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 '''
-trigger a video from button press or similar
+trigger a video when analog sensor crosses a value
 '''
 
 from video_player import *
@@ -13,13 +13,12 @@ FILENAME =  'dramatic_chipmunk.mp4'
 
 play_path = ''.join([BASE_DIR, FILENAME])
 
-is_playing = False
-
 play = Player(play_path)
 adc = Adafruit_ADS1x15.ADS1015()
 
 GAIN = 1
 threshold = 500
+is_playing = False
 
 try:
     while True:
