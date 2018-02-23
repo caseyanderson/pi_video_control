@@ -34,7 +34,6 @@ try:
                 is_playing = False
 except KeyboardInterrupt:
     print(''.join([ '\n', '\n', 'INTERRUPTED', '\n']))
-    button.close()
     if play.status() == 'playing':
         print('video is running, terminating now!')
         play.kill()
