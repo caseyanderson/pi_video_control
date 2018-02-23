@@ -2,8 +2,7 @@
 #threshold controls video playback
 
 import sys
-sys.path.insert(0, '/home/cta/pi_video_control')
-import video_player
+from video_player import *
 
 import time
 import Adafruit_ADS1x15
