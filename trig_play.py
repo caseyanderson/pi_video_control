@@ -18,13 +18,13 @@ import sys
 
 BASE_DIR = str(sys.argv[1])
 FILENAME =  str(sys.argv[2])
-BUTTON_PIN = int(sys.argv[3])
+# BUTTON_PIN = int(sys.argv[3])
 
 play_path = ''.join([BASE_DIR, FILENAME])
 
 is_playing = 0
 
-button = Button(BUTTON_PIN)
+button = Button(16)
 play = Player(play_path)
 
 try:
