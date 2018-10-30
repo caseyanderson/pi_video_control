@@ -7,8 +7,8 @@ arg1 is base directory
 arg2 is media file to play
 arg3 is which pin is the button
 
-TO RUN: python3 trig_play.py /base/dir/ file.mov GPIOPIN
-i.e. python3 trig_play.py /home/pi/ dramatic_chipmunk.webm 16
+TO RUN: python3 toggle_pause_loop.py /base/dir/ file.mov GPIOPIN
+i.e. python3 toggle_pause_loop.py /home/pi/ dramatic_chipmunk.webm 16
 
 '''
 
