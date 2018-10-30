@@ -30,6 +30,8 @@ loop = Player(loop_path)
 is_playing = False
 first_time = True
 
+print("ready!")
+
 try:
     while True:
         if (button.value == False) and (is_playing == False) and (first_time == True):
