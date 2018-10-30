@@ -2,17 +2,27 @@
 
 '''
 pause looping video when trigger is released
+
+arg1 is base directory
+arg2 is media file to play
+arg3 is which pin is the button
+
+TO RUN: python3 trig_play.py /base/dir/ file.mov GPIOPIN
+i.e. python3 trig_play.py /home/pi/ dramatic_chipmunk.webm 16
+
 '''
 
 from video_player import *
-import os
-import signal
 from gpiozero import Button
+import os
+import sys
+import signal
 
-button = Button(4)
+BASE_DIR = str(sys.argv[1])
+FILENAME =  str(sys.argv[2])
+BUTTON_PIN = int(sys.argv[3])
 
-BASE_DIR = '/home/pi/'
-FILENAME = 'dramatic_chipmunk.mp4'
+button = Button(BUTTON_PIN)
 
 loop_path = ''.join([BASE_DIR, FILENAME])
 loop = Player(loop_path)
