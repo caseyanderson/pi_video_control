@@ -3,29 +3,39 @@
 '''
 looping video can be interrupted by a second video,
 resuming the loop from the beginning upon completion
+
+arg1 is base directory
+arg2 is loop file to play
+arg3 is interruption file to play
+arg4 is which pin is the button
+
+TO RUN: python3 interrupt_loop.py /base/dir/ loopfile.mov intteruptfile.mov GPIOPIN
+i.e. python3 interrupt_loop.py /home/pi/ dramatic_chipmunk.webm head_explode.webm 16
+
 '''
 
 from video_player import *
-
 from gpiozero import Button
 from time import sleep
+import sys
 
-button = Button(4)
+BASE_DIR = str(sys.argv[1])
+LOOP_FILENAME =  str(sys.argv[2])
+INT_FILENAME =  str(sys.argv[3])
+BUTTON_PIN = int(sys.argv[4])
+
+button = Button(BUTTON_PIN)
 
 first_time = 1
 interrupted = 0
-
-BASE_DIR = '/home/pi/'
-
-LOOP_FILENAME = 'dramatic_chipmunk.mp4'
-INT_FILENAME = 'head_explode.mp4'
-
 
 loop_path = ''.join([BASE_DIR, LOOP_FILENAME])
 play_path = ''.join([BASE_DIR, INT_FILENAME])
 
 v1_playing = 0
 v2_playing = 0
+
+print("ready!")
 
 try:
     while True:
