@@ -1,7 +1,14 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 '''
 trigger a video from button press or similar
+
+#### updates (10/30/2018)
+1. pass in base dir and filename as commands
+2. tell it which pin to use for button?
+
+#### alternate version
+1. trig play via keyboard key press
 '''
 
 from video_player import *
