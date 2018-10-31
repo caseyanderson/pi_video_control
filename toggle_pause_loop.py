@@ -14,15 +14,16 @@ i.e. python3 toggle_pause_loop.py /home/pi/ dramatic_chipmunk.webm 16
 
 from video_player import *
 from gpiozero import Button
-import os
+from gpiozero import LED
 import sys
-import signal
 
 BASE_DIR = str(sys.argv[1])
 FILENAME =  str(sys.argv[2])
 BUTTON_PIN = int(sys.argv[3])
+LED_PIN = int(sys.argv[4])
 
 button = Button(BUTTON_PIN)
+led = LED(LED_PIN)
 
 loop_path = ''.join([BASE_DIR, FILENAME])
 loop = Player(loop_path)
@@ -30,7 +31,8 @@ loop = Player(loop_path)
 is_playing = False
 first_time = True
 
-print("ready!")
+#print("ready!")
+led.on()
 
 try:
     while True:
@@ -53,6 +55,7 @@ try:
 except KeyboardInterrupt:
     print(''.join([ '\n', '\n', 'INTERRUPTED', '\n']))
     button.close()
+    led.close()
     if loop.status() is 'playing':
         print('video is playing, terminating now!')
         loop.kill()
