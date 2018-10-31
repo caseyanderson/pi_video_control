@@ -28,7 +28,7 @@ play_path = ''.join([BASE_DIR, FILENAME])
 is_playing = 0
 
 button = Button(BUTTON_PIN)
-LED = LED(LED_PIN)
+led = LED(LED_PIN)
 play = Player(play_path)
 
 #print("ready!")
