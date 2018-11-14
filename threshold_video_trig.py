@@ -5,7 +5,7 @@ trigger video playback when analog sensor crosses a value
 '''
 
 from video_player import *
-import time
+from time import sleep
 import Adafruit_ADS1x15
 
 BASE_DIR = '/home/cta/'
@@ -32,6 +32,7 @@ try:
             if play.status() == 'done':
                 print(''.join(['done', '\n', '\n']))
                 is_playing = False
+        sleep(0.05)
 except KeyboardInterrupt:
     print(''.join([ '\n', '\n', 'INTERRUPTED', '\n']))
     if play.status() == 'playing':

@@ -68,7 +68,7 @@ try:
             if play.status() == 'done':
                 print('v2 is done')
                 v2_playing = 0
-
+        sleep(0.05)
 except KeyboardInterrupt:
     print(''.join([ '\n', '\n', 'INTERRUPTED', '\n']))
     button.close()

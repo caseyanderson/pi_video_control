@@ -16,6 +16,7 @@ i.e. python3 trig_play.py /home/pi/ dramatic_chipmunk.webm 16 17
 from video_player import *
 from gpiozero import Button
 from gpiozero import LED
+from time import sleep
 import sys
 
 BASE_DIR = str(sys.argv[1])
@@ -44,6 +45,7 @@ try:
             if play.status() == 'done':
                 print(''.join(['done', '\n', '\n']))
                 is_playing = 0
+        sleep(0.05)
 except KeyboardInterrupt:
     print(''.join([ '\n', '\n', 'INTERRUPTED', '\n']))
     button.close()
